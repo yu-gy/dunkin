@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Debussy';
+    src: url('Debussy.eot');
+    src: url('Debussy.eot?#iefix') format('embedded-opentype'),
+        url('Debussy.woff2') format('woff2'),
+        url('Debussy.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>던킨</title>
+    <link rel="stylesheet" href="lib/fullpage.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="lib/fullpage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        window.onload = () => {
+
+            var myFullpage = new fullpage('#fullpage', {
+                anchors: ['firstPage', 'secondPage', '3rdPage', '4rdPage', '5rdPage', '6rdPage'],
+                navigation: true,
+                /* navigationTooltips: ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page 5', 'Page 6'], */
+                showActiveTooltip: true,
+                menu: '#menu'
+            });
+
+            const mediaViewContent = window.matchMedia(`(max-width: 767px)`);
+            const viewChangeHandler = (mediaViewContent) => {
+                const moveToQnA = document.querySelector('.new')
+
+
+                if (mediaViewContent.matches === true) {
+                    var swiper = new Swiper(".new", {
+                        loop: true,
+                    });
+                }
+            };
+            mediaViewContent.addEventListener("change", viewChangeHandler);
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 30,
+                effect: "fade",
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: true,
+                },
+            });
+            var swiper = new Swiper(".menu", {
+                slidesPerView: 5,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+            var swiper = new Swiper(".event", {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                },
+                speed: 1000, 
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                
+            });
+
+            var swiper = new Swiper(".with", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            let header = document.querySelector('.header');
+            let headerNav = document.querySelector('.header .nav');
+            let headerGnb = document.querySelector('.gnb');
+            let tabMenu = document.querySelectorAll('.tab_menu li');
+            let item = document.querySelectorAll('.swiper.new .swiper-slide')
+
+            headerNav.addEventListener('mouseenter', () => {
+                header.classList.add('active');
+            });
+            headerGnb.addEventListener('mouseleave', () => {
+                header.classList.remove('active');
+            });
+
+            for (let i = 0; i < tabMenu.length; i++) {
+                tabMenu[i].addEventListener('click', () => {
+                    item.forEach(itemIndex => {
+                        itemIndex.classList.remove('active');
+                    });
+
+                    item[i].classList.add('active');
+
+                    tabMenu.forEach(tabMenuIndex => {
+                        tabMenuIndex.classList.remove('active');
+                    });
+                    tabMenu[i].classList.add('active');
+
+                });
+            };
+
+        };//script
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="#"><img src="img/logo.png" alt="dunkin"></a>
+                </h1><!-- logo end -->
+                <nav class="nav">
+                    <ul class="gnb">
+                        <li>
+                            <a href="#" class="depth-01">DUNKIN’ OF MONTH</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">BRAND</a>
+                            <ul class="depth-02">
+                                <li><a href="#">HISTORY</a></li>
+                                <li><a href="#">DD COMMITMENT</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">MENU</a>
+                            <ul class="depth-02">
+                                <li><a href="#">ALL</a></li>
+                                <li><a href="#">DONUT</a></li>
+                                <li><a href="#">FOOD</a></li>
+                                <li><a href="#">COFFEE</a></li>
+                                <li><a href="#">BEVERAGE</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">EVENT</a>
+                            <ul class="depth-02">
+                                <li><a href="#">프로모션</a></li>
+                                <li><a href="#">제휴혜택</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">STORE</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">ORDER</a>
+                            <ul class="depth-02">
+                                <li><a href="#">케이터링</a></li>
+                                <li><a href="#">딜리버리</a></li>
+                                <li><a href="#">선물하기</a></li>
+                            </ul>
+                        </li>
+                    </ul><!-- gnb end -->
+                </nav><!-- nav end -->
+                <button class="menu_btn mobile"><img src="img/icon_menu.png" alt="menu"></button>
+                <nav class="nav_mobile">
+                    <ul class="gnb">
+                        <li>
+                            <a href="#" class="depth-01">DUNKIN’ OF MONNTH</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">BRAND</a>
+                            <ul class="depth-02">
+                                <li><a href="#">HISTORY</a></li>
+                                <li><a href="#">DD COMMITMENT</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">MENU</a>
+                            <ul class="depth-02">
+                                <li><a href="#">ALL</a></li>
+                                <li><a href="#">DONUT</a></li>
+                                <li><a href="#">FOOD</a></li>
+                                <li><a href="#">COFFEE</a></li>
+                                <li><a href="#">BEVERAGE</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">EVENT</a>
+                            <ul class="depth-02">
+                                <li><a href="#">프로모션</a></li>
+                                <li><a href="#">제휴혜택</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">STORE</a>
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">ORDER</a>
+                            <ul class="depth-02">
+                                <li><a href="#">케이터링</a></li>
+                                <li><a href="#">딜리버리</a></li>
+                                <li><a href="#">선물하기</a></li>
+                            </ul>
+                        </li>
+                    </ul><!-- gnb end -->
+                </nav><!-- nav end -->
+            </div><!-- inner end -->
+        </header><!-- header_mobile end -->
+
+        <div id="fullpage">
+            <div class="section" id="section0">
+                <div class="main_visual">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_visual1.png" media="(max-width:600px)">
+                                    <img src="img/Group_visual.png" />
+                                </picture>
+                            </div><!-- swiper-slide end -->
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_visual2.png" media="(max-width:600px)">
+                                    <img src="img/Group_visual2.png" />
+                                </picture>
+                            </div><!-- swiper-slide end -->
+                        </div><!-- swiper-wrapper end-->
+                    </div><!-- swiper mySwiper end -->
+                </div><!--main_visual end  -->
+            </div><!--#section0 end  -->
+
+            <section class="section" id="section1">
+                <div class="section_new">
+                    <div class="text">
+                        <h2>WHAT’S NEW?</h2>
+                        <p>이달의 던킨을 만나보세요!</p>
+                    </div><!--text end  -->
+                    <ul class="tab_menu">
+                        <li class="active">고기듬뿍 브리또</li>
+                        <li>가을 밤 필드</li>
+                        <li>미숫가루 라떼</li>
+                        <li>미숫가루 쿨라타</li>
+                    </ul><!-- tab_menu end -->
+                    <div class="swiper new">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide active">
+                                <img src="img/new1.png" alt="Meat Buritto">
+                                <div class="text_box">
+                                    <h2>고기듬뿍 브리또</h2>
+                                    <p>Meat Buritto</p>
+                                    <span><strong>육즙 가득 소고기</strong>와 쉐프 특제 알리올리 소스를 넣고 피망, 양파, 라이스를 더해 하나로도 <strong>든든한
+                                            식사대용
+                                            브리토</strong></span>
+                                </div><!--text_box end  -->
+                            </div><!--swiper-slide end  -->
+
+                            <div class="swiper-slide">
+                                <img src="img/new2.png" alt="Chestnut Filled">
+                                <div class="text_box">
+                                    <h2>가을 밤 필드</h2>
+                                    <p>Chestnut Filled</p>
+                                    <span><strong>국산 밤과 우유</strong>를 넣어 더욱 풍미 깊고 부드러운 필링을<br /> 채운 가을 제철 도넛</span>
+                                </div><!--text_box end  -->
+                            </div><!-- swiper-slide -->
+
+                            <div class="swiper-slide">
+                                <img src="img/new3.png" alt="Multigrain Latte">
+                                <div class="text_box">
+                                    <h2>아이스 미숫가루 라떼</h2>
+                                    <p>Iced Multigrain Latte</p>
+                                    <span><strong>신선한 우유와 6가지 곡물</strong>이 만나 <strong>고소하고 달콤한 맛</strong>을 <br />즐길 수 있는
+                                        시원한 미숫가루
+                                        라떼</span>
+                                </div><!--text_box end  -->
+                            </div><!-- swiper-slide end -->
+
+                            <div class="swiper-slide">
+                                <img src="img/new4.png" alt="Multigrain Coolatta">
+                                <div class="text_box">
+                                    <h2>미숫가루 쿨라타</h2>
+                                    <p>Multigrain Coolatta</p>
+                                    <span><strong>신선한 우유와 6가지 곡물</strong>을 넣어 만든 <strong>달콤하고 고소한<br /> 옛날 그 맛</strong>,
+                                        미숫가루
+                                        쿨라타</span>
+                                </div><!--text_box end  -->
+                            </div><!-- swiper-slide end -->
+                        </div><!-- swiper-wrapper end -->
+                        <!--   <div class="swiper-pagination"></div> -->
+                    </div><!--swiper mySwiper_new end  -->
+                </div><!-- section_new end -->
+            </section><!-- #section1 end -->
+
+            <div class="section" id="section2">
+                <div class="section_menu">
+                    <div class="text">
+                        <h2>DUNKIN’ MENU</h2>
+                        <p>던킨의 메뉴를 소개합니다.</p>
+                    </div><!--text end  -->
+                    <div class="swiper menu">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/menu_donut.png" alt="DONUT">
+                                <p>DONUT</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/menu-food.png" alt="FOOD">
+                                <p>FOOD</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/menu-coffee.png" alt="COFFEE">
+                                <p>COFFEE</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/menu-beverage.png" alt="BEVERAGE">
+                                <p>BEVERAGE</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/menu-snack.png" alt="SNACK">
+                                <p>SNACK</p>
+                            </div>
+                        </div><!-- swiper-wrapper end -->
+                        <div class="swiper-pagination"></div>
+                    </div><!--swiper menu end  -->
+                </div><!-- section_menu end -->
+            </div><!-- #section2 end -->
+
+            <div class="section" id="section3">
+                <div class="section_event">
+                    <div class="text">
+                        <h2>DUNKIN'NEW & EVENT</h2>
+                        <p>던킨의 다양한 혜택과 이벤트 그리고 신제품</p>
+                    </div><!--text end  -->
+                    <div class="swiper event">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="img/event1.png" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event2.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event3.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event4.png" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event5.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event6.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event7.png" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event8.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event9.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="img/event10.jpg" alt=""></div>
+                        </div><!-- swiper-wrapper end -->
+                        <div class="swiper-pagination"></div>
+                    </div><!-- "swiper event end -->
+                </div><!-- section_event end -->
+            </div><!-- #section3 end -->
+
+            <div class="section" id="section4">
+                <div class="section_with">
+                    <div class="text">
+                        <h2>WITH DUNKIN’</h2>
+                        <p>던킨을 더 가까이에서!</p>
+                    </div><!--text end  -->
+                    <div class="swiper with">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="image_box"><img src="img/with_order.png" alt="order"></div>
+                                <div class="text_box">
+                                    <p>ORDER</p>
+                                    <span>쉽고 빠르게 만나는 던킨</span>
+                                </div><!-- text_box end-->
+                            </div><!-- swiper-slide end -->
+
+                            <div class="swiper-slide">
+                                <div class="image_box"><img src="img/with_store.png" alt="store"></div>
+                                <div class="text_box">
+                                    <p>STORE</p>
+                                    <span>나와 가장 가까운 던킨 찾기</span>
+                                </div><!--  textbox end-->
+                            </div><!-- swiper-slide end -->
+
+                            <div class="swiper-slide">
+                                <div class="image_box"><img src="img/with_brand.png" alt="brand"></div>
+                                <div class="text_box">
+                                    <p>BRAND</p>
+                                    <span>던킨이 전하고 싶은 이야기</span>
+                                </div><!--  textbox end-->
+                            </div><!-- swiper-slide end -->
+                        </div><!--swiper-wrapper end  -->
+                        <div class="swiper-pagination"></div>
+                    </div><!--swiper with end  -->
+                </div><!--section_with end  -->
+            </div><!--#section4  -->
+
+            <footer class="footer section fp-auto-height" id="footer">
+                    <div class="inner">
+                        <div class="set">
+                            <div class="left">
+                                <img src="img/footer.svg" alt="dunkin">
+                                <ul>
+                                    <li>서울특별시 서초구 남부순환로 2620(양재동 11-149번지)</li>
+                                    <li>사업자 등록번호 : 303-81-09535</li>
+                                    <li>비알코리아(주) 대표이사 도세호</li>
+                                    <li>TEL : 080-555-3131</li>
+                                    <li>개인정보관리책임자 : 심수연</li>
+                                    <li>COPYRIGHT Ⓒ 2024 BRKOREA COMPANY. ALL RIGHTS RESERVED.</li>
+                                </ul>
+                            </div><!-- left end -->
+                            <div class="right">
+                                <ul class="footer_nav">
+                                    <li class="footer_menu">
+                                        <p>BRAND</p>
+                                        <ul class="menu_list">
+                                            <li><a href="#">HISTORY</a></li>
+                                            <li><a href="#">DD COMMITMENT</a></li>
+                                        </ul><!-- memu_list -->
+                                    </li><!-- footer_menu end -->
+                                </ul>
+                                    <li class="footer_menu">
+                                        <p>MENU</p>
+                                        <ul class="menu_list">
+                                            <li><a href="#">DONUT</a></li>
+                                            <li><a href="#">FOOD</a></li>
+                                            <li><a href="#">COFFEE</a></li>
+                                            <li><a href="#">BEVERAGE</a></li>
+                                            <li><a href="#">SNACK</a></li>
+                                        </ul><!-- memu_list -->
+                                    </li><!-- footer_menu end -->
+                                </ul>
+                                    <li class="footer_menu">
+                                        <p>ENENT</p>
+                                        <ul class="menu_list">
+                                            <li><a href="#">프로모션</a></li>
+                                            <li><a href="#">제휴혜택</a></li>
+                                        </ul><!-- memu_list -->
+                                    </li><!-- footer_menu end -->
+                                </ul>
+                                    <li class="footer_menu">
+                                        <p>STORE</p>
+                                        <ul class="menu_list">
+                                            <li><a href="#">매장찾기</a></li>
+                                        </ul><!-- memu_list -->
+                                    </li><!-- footer_menu end -->
+                                </ul>
+                                    <li class="footer_menu">
+                                        <p>ORDER</p>
+                                        <ul class="menu_list">
+                                            <li><a href="#">케이터링</a></li>
+                                            <li><a href="#">딜리버리</a></li>
+                                            <li><a href="#">선물하기</a></li>
+                                        </ul><!-- memu_list -->
+                                    </li><!-- footer_menu end -->
+                                </ul>
+                                <strong>창업문의</strong>
+                            </div><!-- right end -->
+                        </div><!-- set end -->
+                        <div class="middle">
+                            <div class="login">
+                                <ul>
+                                    <li><a href="#">로그인</a></li>
+                                    <li><a href="#">회원가입</a></li>
+                                    <li><a href="#">고객센터</a></li>
+                                </ul>
+                            </div><!--login end  -->
+                            <div class="icon">
+                                <img src="img/sns_d.svg" alt="">
+                                <img src="img/sns_instagram.svg" alt="">
+                                <img src="img/sns_youtube.svg" alt="">
+                                <img src="img/sns_blog.svg" alt="">
+                            </div><!-- icon end -->
+                        </div><!-- middle end -->
+                        <div class="bottom">
+                            <div class="box">
+                                <p>FAMILY SITE</p>
+                                <img src="img/icon_top.png" alt="">
+                            </div><!--box end  -->
+                            <img src="img/img.png" alt="">
+                            <ul>
+                                <li>공정거래자율준수</li>
+                                <li>윤리신고센터</li>
+                                <li>이용약관</li>
+                                <li>개인정보방침</li>
+                                <li>영상정보처리기기운영관리방침</li>
+                                <li>안전보건경영방침</li>
+                                <li>이메일무단수집거부</li>
+                                <li>거래희망회사</li>
+                                <li>사전등록</li>
+                                <li>채용안내</li>
+                            </ul>
+                        </div><!-- bottom end -->
+                    </div><!-- inner end -->
+            </footer><!-- footer end -->
+        </div><!--fullpage end  -->
+        <div class="top_menu">
+        </div><!--top_menu end   -->
+    </div><!-- wrap end -->
+</body>
+
+</html>

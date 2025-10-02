@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+:root{
+    --color-text-b:#ef6a00;
+    --color-text:#f18732;
+    --color-section:#FCFBF9;
+    --color-section-b:#F8F4F1;
+    --fontSize-text-h2: 60px;
+    --fontSize-text-p: 20px;
+}

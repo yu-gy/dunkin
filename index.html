@@ -58,12 +58,12 @@
                 autoplay: {
                     delay: 4000,
                 },
-                speed: 1000, 
+                speed: 1000,
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
                 },
-                
+
             });
 
             var swiper = new Swiper(".with", {
@@ -100,9 +100,32 @@
                         tabMenuIndex.classList.remove('active');
                     });
                     tabMenu[i].classList.add('active');
-
                 });
             };
+
+            //top_menu
+
+            let moreBtn = document.querySelector('.menu-box.more');
+            let closeBtn = document.querySelector('.menu-box.close');
+            let moreMenu = document.querySelectorAll('.none .menu-box');
+
+            moreBtn.addEventListener('click', () => {
+                closeBtn.style.display = 'block';
+                moreBtn.style.display = 'none';
+
+                moreMenu.forEach(menu => {
+                    menu.style.display = 'block';  
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                moreBtn.style.display = 'block';
+                closeBtn.style.display = 'none';
+
+                moreMenu.forEach(menu => {
+                    menu.style.display = 'none';  
+                });
+            });
 
         };//script
     </script>
@@ -382,105 +405,137 @@
             </div><!--#section4  -->
 
             <footer class="footer section fp-auto-height" id="footer">
-                    <div class="inner">
-                        <div class="set">
-                            <div class="left">
-                                <img src="img/footer.svg" alt="dunkin">
-                                <ul>
-                                    <li>서울특별시 서초구 남부순환로 2620(양재동 11-149번지)</li>
-                                    <li>사업자 등록번호 : 303-81-09535</li>
-                                    <li>비알코리아(주) 대표이사 도세호</li>
-                                    <li>TEL : 080-555-3131</li>
-                                    <li>개인정보관리책임자 : 심수연</li>
-                                    <li>COPYRIGHT Ⓒ 2024 BRKOREA COMPANY. ALL RIGHTS RESERVED.</li>
-                                </ul>
-                            </div><!-- left end -->
-                            <div class="right">
-                                <ul class="footer_nav">
-                                    <li class="footer_menu">
-                                        <p>BRAND</p>
-                                        <ul class="menu_list">
-                                            <li><a href="#">HISTORY</a></li>
-                                            <li><a href="#">DD COMMITMENT</a></li>
-                                        </ul><!-- memu_list -->
-                                    </li><!-- footer_menu end -->
-                                </ul>
-                                    <li class="footer_menu">
-                                        <p>MENU</p>
-                                        <ul class="menu_list">
-                                            <li><a href="#">DONUT</a></li>
-                                            <li><a href="#">FOOD</a></li>
-                                            <li><a href="#">COFFEE</a></li>
-                                            <li><a href="#">BEVERAGE</a></li>
-                                            <li><a href="#">SNACK</a></li>
-                                        </ul><!-- memu_list -->
-                                    </li><!-- footer_menu end -->
-                                </ul>
-                                    <li class="footer_menu">
-                                        <p>ENENT</p>
-                                        <ul class="menu_list">
-                                            <li><a href="#">프로모션</a></li>
-                                            <li><a href="#">제휴혜택</a></li>
-                                        </ul><!-- memu_list -->
-                                    </li><!-- footer_menu end -->
-                                </ul>
-                                    <li class="footer_menu">
-                                        <p>STORE</p>
-                                        <ul class="menu_list">
-                                            <li><a href="#">매장찾기</a></li>
-                                        </ul><!-- memu_list -->
-                                    </li><!-- footer_menu end -->
-                                </ul>
-                                    <li class="footer_menu">
-                                        <p>ORDER</p>
-                                        <ul class="menu_list">
-                                            <li><a href="#">케이터링</a></li>
-                                            <li><a href="#">딜리버리</a></li>
-                                            <li><a href="#">선물하기</a></li>
-                                        </ul><!-- memu_list -->
-                                    </li><!-- footer_menu end -->
-                                </ul>
-                                <strong>창업문의</strong>
-                            </div><!-- right end -->
-                        </div><!-- set end -->
-                        <div class="middle">
-                            <div class="login">
-                                <ul>
-                                    <li><a href="#">로그인</a></li>
-                                    <li><a href="#">회원가입</a></li>
-                                    <li><a href="#">고객센터</a></li>
-                                </ul>
-                            </div><!--login end  -->
-                            <div class="icon">
-                                <img src="img/sns_d.svg" alt="">
-                                <img src="img/sns_instagram.svg" alt="">
-                                <img src="img/sns_youtube.svg" alt="">
-                                <img src="img/sns_blog.svg" alt="">
-                            </div><!-- icon end -->
-                        </div><!-- middle end -->
-                        <div class="bottom">
-                            <div class="box">
-                                <p>FAMILY SITE</p>
-                                <img src="img/icon_top.png" alt="">
-                            </div><!--box end  -->
-                            <img src="img/img.png" alt="">
+                <div class="inner">
+                    <div class="set">
+                        <div class="left">
+                            <img src="img/footer.svg" alt="dunkin">
                             <ul>
-                                <li>공정거래자율준수</li>
-                                <li>윤리신고센터</li>
-                                <li>이용약관</li>
-                                <li>개인정보방침</li>
-                                <li>영상정보처리기기운영관리방침</li>
-                                <li>안전보건경영방침</li>
-                                <li>이메일무단수집거부</li>
-                                <li>거래희망회사</li>
-                                <li>사전등록</li>
-                                <li>채용안내</li>
+                                <li>서울특별시 서초구 남부순환로 2620(양재동 11-149번지)</li>
+                                <li>사업자 등록번호 : 303-81-09535</li>
+                                <li>비알코리아(주) 대표이사 도세호</li>
+                                <li>TEL : 080-555-3131</li>
+                                <li>개인정보관리책임자 : 심수연</li>
+                                <li>COPYRIGHT Ⓒ 2024 BRKOREA COMPANY. ALL RIGHTS RESERVED.</li>
                             </ul>
-                        </div><!-- bottom end -->
-                    </div><!-- inner end -->
+                        </div><!-- left end -->
+                        <div class="right">
+                            <ul class="footer_nav">
+                                <li class="footer_menu">
+                                    <p>BRAND</p>
+                                    <ul class="menu_list">
+                                        <li><a href="#">HISTORY</a></li>
+                                        <li><a href="#">DD COMMITMENT</a></li>
+                                    </ul><!-- memu_list -->
+                                </li><!-- footer_menu end -->
+                            </ul>
+                            <li class="footer_menu">
+                                <p>MENU</p>
+                                <ul class="menu_list">
+                                    <li><a href="#">DONUT</a></li>
+                                    <li><a href="#">FOOD</a></li>
+                                    <li><a href="#">COFFEE</a></li>
+                                    <li><a href="#">BEVERAGE</a></li>
+                                    <li><a href="#">SNACK</a></li>
+                                </ul><!-- memu_list -->
+                            </li><!-- footer_menu end -->
+                            </ul>
+                            <li class="footer_menu">
+                                <p>ENENT</p>
+                                <ul class="menu_list">
+                                    <li><a href="#">프로모션</a></li>
+                                    <li><a href="#">제휴혜택</a></li>
+                                </ul><!-- memu_list -->
+                            </li><!-- footer_menu end -->
+                            </ul>
+                            <li class="footer_menu">
+                                <p>STORE</p>
+                                <ul class="menu_list">
+                                    <li><a href="#">매장찾기</a></li>
+                                </ul><!-- memu_list -->
+                            </li><!-- footer_menu end -->
+                            </ul>
+                            <li class="footer_menu">
+                                <p>ORDER</p>
+                                <ul class="menu_list">
+                                    <li><a href="#">케이터링</a></li>
+                                    <li><a href="#">딜리버리</a></li>
+                                    <li><a href="#">선물하기</a></li>
+                                </ul><!-- memu_list -->
+                            </li><!-- footer_menu end -->
+                            </ul>
+                            <strong>창업문의</strong>
+                        </div><!-- right end -->
+                    </div><!-- set end -->
+                    <div class="middle">
+                        <div class="login">
+                            <ul>
+                                <li><a href="#">로그인</a></li>
+                                <li><a href="#">회원가입</a></li>
+                                <li><a href="#">고객센터</a></li>
+                            </ul>
+                        </div><!--login end  -->
+                        <div class="icon">
+                            <img src="img/sns_d.svg" alt="">
+                            <img src="img/sns_instagram.svg" alt="">
+                            <img src="img/sns_youtube.svg" alt="">
+                            <img src="img/sns_blog.svg" alt="">
+                        </div><!-- icon end -->
+                    </div><!-- middle end -->
+                    <div class="bottom">
+                        <div class="box">
+                            <p>FAMILY SITE</p>
+                            <img src="img/icon_footer.png" alt="">
+                        </div><!--box end  -->
+                        <img src="img/img.png" alt="">
+                        <ul>
+                            <li>공정거래자율준수</li>
+                            <li>윤리신고센터</li>
+                            <li>이용약관</li>
+                            <li>개인정보방침</li>
+                            <li>영상정보처리기기운영관리방침</li>
+                            <li>안전보건경영방침</li>
+                            <li>이메일무단수집거부</li>
+                            <li>거래희망회사</li>
+                            <li>사전등록</li>
+                            <li>채용안내</li>
+                        </ul>
+                    </div><!-- bottom end -->
+                </div><!-- inner end -->
             </footer><!-- footer end -->
         </div><!--fullpage end  -->
         <div class="top_menu">
+            <div class="none">
+                <div class="menu-box search">
+                    <img src="img/icon_s.png" alt="">
+                    <p>제품찾기</p>
+                </div><!-- search end -->
+
+                <div class="menu-box store">
+                    <img src="img/icon_store.png" alt="">
+                    <p>창업문의</p>
+                </div><!-- store end -->
+
+                <div class="menu-box data">
+                    <img src="img/icon_donut.png" alt="">
+                    <p>영양정보</p>
+                </div><!-- data end -->
+
+                <div class="menu-box close">
+                    <img src="img/icon_close.png" alt="">
+                    <p>Close</p>
+                </div><!-- close end -->
+            </div><!-- none end -->
+            <div class="menu-box more">
+                <img src="img/icon_more.png" alt="">
+                <p>More</p>
+            </div><!-- more end -->
+
+            <div class="menu-box top">
+                <a href="http://127.0.0.1:5502/index.html#firstPage"><img src="img/icon_top.png" alt=""></a>
+                <a href="http://127.0.0.1:5502/index.html#firstPage">
+                    <p>Top</p>
+                </a>
+            </div><!-- top end -->
         </div><!--top_menu end   -->
     </div><!-- wrap end -->
 </body>

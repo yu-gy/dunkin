@@ -397,7 +397,9 @@
     font-size: 20px;
     font-weight: 500;
 }
-
+#footer .inner {
+    padding: 50px;
+}
 #footer .inner .set {
     display: flex;
     justify-content: space-between;
@@ -438,7 +440,7 @@
     margin-bottom: 10px;
 }
 #footer .inner .right .footer_menu .menu_list {
-    line-height: 1.7;
+    line-height: 2;
     font-weight: 500;
 }
 #footer .inner .middle {
@@ -463,4 +465,107 @@
 }
 #footer .inner .bottom ul {
     display: flex;
+}
+#footer .inner .left img {
+    width: 130px;
+}
+#footer .inner .left ul {
+    line-height: 1.8;
+    padding: 10px 0 20px;
+}
+#footer .inner .middle {
+    margin-bottom: 20px;
+    align-items: center;
+}
+#footer .inner .bottom {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    border-top: 1px solid #222222;
+    padding-top: 20px;
+}
+
+#footer .inner .bottom .box {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ADADAD;
+    border-radius: 30px;
+    width: 180px;
+    height: 50px;
+    padding: 20px;
+    align-items: center;
+    background-color: #fdfdfd;
+    font-weight: 500;
+}
+#footer .inner .bottom .box img {
+    cursor: pointer;
+}
+#footer .inner .bottom > img {
+   height: 30px;
+   
+}
+#footer .inner .bottom ul {
+    display: flex;
+    gap: 15px;
+    line-height: 50px;
+    font-weight: 500;
+}
+.fp-viewing-firstPage .top_menu {
+    display: none;
+}
+.fp-viewing-6rdPage .top_menu {
+    bottom: 195px;
+}
+.top_menu {
+    z-index: 99999;
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+    
+}
+
+.top_menu .menu-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #f18732;
+    align-items: center;
+    text-align: center;
+    color: #fdfdfd;
+    font-weight: 500;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.top_menu .menu-box.close {
+    background-color: #e0c7b3;
+}
+.top_menu .none .menu-box img,
+.top_menu .menu-box img {
+    padding-top: 10px;
+}
+.top_menu .none .menu-box.close img {
+    width: 16px;
+    margin: 2px 0;
+}
+.top_menu .none .menu-box.close p {
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.top_menu .none .menu-box p {
+    padding-top: 4px;
+    font-size: 14px;
+}
+.top_menu .menu-box p {
+    padding-top: 8px;
+}
+.top_menu .menu-box.more img {
+    width: 18px;
+}
+.top_menu .menu-box.top img {
+    padding-top: 14px;
+}
+
+.top_menu .none .menu-box {
+    display: none;
 }

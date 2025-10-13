@@ -8,16 +8,77 @@
     --fontSize-text-h2: 60px;
     --fontSize-text-p: 20px;
 }
+@media screen and (max-width:600px) {
+    .header .inner .nav_mobile .gnb {
+        padding: 40px 50px;
+        row-gap: 40px;
+    }
+    .header .inner .nav_mobile .gnb > li > a.depth-01 img {
+        width: 10px;
+        height: 9px;
+    }
+}
+@media screen and (max-width:900px) {
+    .header .inner .nav_mobile .gnb > li > a.depth-01 {
+        font-size: 18px;
+    }
+    .header .inner .nav_mobile .gnb > li .depth-02 li {
+        font-size: 15px;
+    }
+    .follow_us h3 {font-size: 18px;}
+}
+@media screen and (max-width:1510px) {
+    .header .inner {
+        justify-content: space-between ;
+    }
+    .header .inner .nav {
+        display: none;
+    }
+
+    .header .inner .menu_btn.mobile {
+        display: block;
+    }
+
+    .header .inner .nav_mobile {
+        display: flex;
+    }
+    #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide {
+        width: 400px;
+        margin-right: 0;
+    }
+    #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide img {
+        width: 317px;
+    }
+
+    #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide p {
+        width: 317px;
+        font-size: 30px;
+        padding-top: 30px;
+    }
+
+    #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide:hover img {
+        transform: scale(1.2);
+    }
+
+}
+
+@media screen and (max-width:1680px) {
+    .header .inner .nav .gnb>li {
+        width: 150px;
+    }
+
+    .header .inner .logo {
+        margin-right: 150px;
+    }
+}
 
 @media screen and (max-width:1730px) {
     .header .inner {
         padding: 0 60px;
     }
+
     .main_visual .swiper-slide img {
         width: 100%;
-    }
-    #section2 .section_menu .swiper.menu {
-        width: 1500px;
     }
 
     #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide img {
@@ -33,6 +94,7 @@
     #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide:hover img {
         transform: scale(1.3);
     }
+
     #footer .inner .bottom {
         gap: 20px;
     }

@@ -44,12 +44,18 @@
                 },
             });
             var swiper = new Swiper(".menu", {
-                slidesPerView: 5,
-                spaceBetween: 30,
+                slidesPerView: 3,
+                /* spaceBetween: 30, */
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
                 },
+                breakpoints: {
+                    1510 : {
+                        slidesPerView: 5
+                    }
+                }
+                
             });
             var swiper = new Swiper(".event", {
                 slidesPerView: 'auto',
@@ -114,7 +120,7 @@
                 moreBtn.style.display = 'none';
 
                 moreMenu.forEach(menu => {
-                    menu.style.display = 'block';  
+                    menu.style.display = 'block';
                 });
             });
 
@@ -123,10 +129,29 @@
                 closeBtn.style.display = 'none';
 
                 moreMenu.forEach(menu => {
-                    menu.style.display = 'none';  
+                    menu.style.display = 'none';
                 });
             });
 
+            //mobile_menu
+            let mobileOpen = document.querySelector('.menu_btn.mobile');
+            let mobileMenu = document.querySelector('.inner .nav_mobile');
+            let mobileMore = document.querySelectorAll('.nav_mobile .gnb > li > a.depth-01 img');
+            let mobileList = document.querySelectorAll('.nav_mobile .gnb > li > .depth-02');
+            let mobileClose = document.querySelector('.nav_mobile .gnb .menu_btn_close');
+
+            mobileOpen.addEventListener('click', () => {
+                mobileMenu.classList.add('open');
+            });
+            mobileClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+            mobileMore.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    mobileList[index].classList.toggle('open');
+                    btn.classList.toggle('rotate');
+                });
+            });
         };//script
     </script>
 </head>
@@ -183,18 +208,25 @@
                 <button class="menu_btn mobile"><img src="img/icon_menu.png" alt="menu"></button>
                 <nav class="nav_mobile">
                     <ul class="gnb">
+                        <button class="menu_btn_close"><img src="img/Vector.png" alt="menu close"></button>
                         <li>
                             <a href="#" class="depth-01">DUNKIN’ OF MONNTH</a>
                         </li>
                         <li>
-                            <a href="#" class="depth-01">BRAND</a>
+                            <a href="#" class="depth-01">
+                                <span>BRAND</span>
+                                <img src="img/menu_btn.png" alt="more menu">
+                            </a>
                             <ul class="depth-02">
                                 <li><a href="#">HISTORY</a></li>
                                 <li><a href="#">DD COMMITMENT</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="depth-01">MENU</a>
+                            <a href="#" class="depth-01">
+                                <span>MENU</span>
+                                <img src="img/menu_btn.png" alt="more menu">
+                            </a>
                             <ul class="depth-02">
                                 <li><a href="#">ALL</a></li>
                                 <li><a href="#">DONUT</a></li>
@@ -204,7 +236,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="depth-01">EVENT</a>
+                            <a href="#" class="depth-01">
+                                <span>EVENT</span>
+                                <img src="img/menu_btn.png" alt="more menu">
+                            </a>
                             <ul class="depth-02">
                                 <li><a href="#">프로모션</a></li>
                                 <li><a href="#">제휴혜택</a></li>
@@ -214,13 +249,23 @@
                             <a href="#" class="depth-01">STORE</a>
                         </li>
                         <li>
-                            <a href="#" class="depth-01">ORDER</a>
+                            <a href="#" class="depth-01">
+                                <span>ORDER</span>
+                                <img src="img/menu_btn.png" alt="more menu">
+                            </a>
                             <ul class="depth-02">
                                 <li><a href="#">케이터링</a></li>
                                 <li><a href="#">딜리버리</a></li>
                                 <li><a href="#">선물하기</a></li>
                             </ul>
                         </li>
+                        <div class="follow_us">
+                            <h3>FOLLOW US</h3>
+                            <a href="#"><img src="img/sns_d.svg" alt=""></a>
+                            <a href="#"><img src="img/sns_instagram.svg" alt=""></a>
+                            <a href="#"><img src="img/sns_youtube.svg" alt=""></a>
+                            <a href="#"><img src="img/sns_blog.svg" alt=""></a>
+                        </div><!--follow_us end  -->
                     </ul><!-- gnb end -->
                 </nav><!-- nav end -->
             </div><!-- inner end -->

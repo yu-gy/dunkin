@@ -4,11 +4,12 @@
 
 
 #fp-nav ul li a span {} /* fullpage-nav */
+
 .header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9999999;
     width: 100%;
 }
 
@@ -31,6 +32,7 @@
 }
 
 .header .inner {
+    width: 100%;
     padding: 0 100px;
     height: 100px;
     display: flex;
@@ -129,9 +131,82 @@
 }
 
 .header .inner .nav_mobile {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+}
+.header .inner .nav_mobile.open {
+    display: flex;
+    transform: translateX(0)
+}
+.header .inner .nav_mobile .gnb {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    row-gap: 50px;
+    width: 100%;
+    background-color: #F8F4F1;
+    padding: 40px 100px;
+    height: 100vh;
+    overflow-y: auto;
+}
+.header .inner .nav_mobile .gnb::-webkit-scrollbar {
     display: none;
 }
-
+.header .inner .nav_mobile .gnb .menu_btn_close {
+    display: flex;
+    justify-content: flex-end;
+}
+.header .inner .nav_mobile .gnb > li > a.depth-01 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Debussy';
+    letter-spacing: 2px;
+    font-size: 25px;
+}
+.header .inner .nav_mobile .gnb > li > a.depth-01 img {
+    width: 20px;
+    height: 13px;
+    object-fit: cover;
+    display: block;
+    margin-right: 8px;
+}
+.header .inner .nav_mobile .gnb > li > a.depth-01 img.rotate {
+    transform: rotate(180deg);
+}
+.header .inner .nav_mobile .gnb > li .depth-02 {
+    display: none;
+    padding: 10px 0;
+    font-weight: 500;
+}
+.header .inner .nav_mobile .gnb > li .depth-02 li {
+    padding-left: 20px;
+    margin-top: 20px;
+}
+.header .inner .nav_mobile .gnb > li .depth-02 li:hover {
+    color: #f18732;
+}
+.header .inner .nav_mobile .gnb > li .depth-02.open {
+    display: block;
+}
+.follow_us {
+    padding-bottom: 50px;
+}
+.follow_us h3{
+    padding: 45px 0 10px 0;
+    border-top: 2px solid #ADADAD;
+    font-size: var(--fontSize-text-p);
+    font-family: 'Debussy';
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.follow_us a {
+    margin-right: 20px;
+}
 #section0 {
     padding-top: 100px;
 }
@@ -246,7 +321,7 @@
 }
 
 #section2 .section_menu .swiper.menu {
-    width: 1728px;
+    max-width: 1728px;
 }
 
 #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide {
@@ -506,8 +581,8 @@
 }
 #footer .inner .bottom ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
-    line-height: 50px;
     font-weight: 500;
 }
 .fp-viewing-firstPage .top_menu {

@@ -19,22 +19,42 @@
                 navigation: true,
                 /* navigationTooltips: ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page 5', 'Page 6'], */
                 showActiveTooltip: true,
+                responsiveWidth: 900,
                 menu: '#menu'
             });
 
-            const mediaViewContent = window.matchMedia(`(max-width: 767px)`);
-            const viewChangeHandler = (mediaViewContent) => {
-                const moveToQnA = document.querySelector('.new')
+            /*  const mediaViewContent = window.matchMedia(`(max-width: 767px)`);
+             const viewChangeHandler = (mediaViewContent) => {
+                 const moveToQnA = document.querySelector('.new')
+ 
+ 
+                 if (mediaViewContent.matches === true) {
+                     var swiper = new Swiper(".new", {
+                         loop: true,
+                     });
+                 }
+             };
+             mediaViewContent.addEventListener("change", viewChangeHandler); */
+            var viewportWidth = window.innerWidth;
+            if (viewportWidth < 1060) {
+                var swiper = new Swiper(".new", {
+                    loop: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
 
+                });
 
-                if (mediaViewContent.matches === true) {
-                    var swiper = new Swiper(".new", {
-                        loop: true,
-                    });
-                }
             };
-            mediaViewContent.addEventListener("change", viewChangeHandler);
+
+
             var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
                 spaceBetween: 30,
                 effect: "fade",
                 loop: true,
@@ -43,19 +63,26 @@
                     disableOnInteraction: true,
                 },
             });
+
             var swiper = new Swiper(".menu", {
-                slidesPerView: 3,
-                /* spaceBetween: 30, */
+                slidesPerView: 1.5,
+                centeredSlides: true,
+                spaceBetween: 30,
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
                 },
                 breakpoints: {
-                    1510 : {
-                        slidesPerView: 5
+                    1510: {
+                        slidesPerView: 5,
+                        centeredSlides: false
+                    },
+                    700: {
+                        slidesPerView: 3,
+                        centeredSlides: false
                     }
-                }
-                
+                },
+
             });
             var swiper = new Swiper(".event", {
                 slidesPerView: 'auto',
@@ -73,14 +100,22 @@
             });
 
             var swiper = new Swiper(".with", {
-                slidesPerView: 3,
+                slidesPerView: 1.5,
                 spaceBetween: 30,
+                centeredSlides: true,
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
                 },
+                breakpoints: {
+                    800: {
+                        slidesPerView: 3,
+                        centeredSlides: false
+                    }
+                }
             });
 
+            // new menu
             let header = document.querySelector('.header');
             let headerNav = document.querySelector('.header .nav');
             let headerGnb = document.querySelector('.gnb');
@@ -114,6 +149,8 @@
             let moreBtn = document.querySelector('.menu-box.more');
             let closeBtn = document.querySelector('.menu-box.close');
             let moreMenu = document.querySelectorAll('.none .menu-box');
+            let topBtn = document.querySelector('.menu-box.top');
+            let searchBtn = document.querySelector('.menu-box.search')
 
             moreBtn.addEventListener('click', () => {
                 closeBtn.style.display = 'block';
@@ -133,25 +170,57 @@
                 });
             });
 
+            topBtn.addEventListener('click', () => {
+                fullpage_api.moveTo(1);
+            });
+
+            searchBtn.addEventListener('click', () => {
+
+            });
+
+
             //mobile_menu
+            let body = document.querySelector('body');
+            let fullPage = document.querySelector('#fullpage');
             let mobileOpen = document.querySelector('.menu_btn.mobile');
             let mobileMenu = document.querySelector('.inner .nav_mobile');
-            let mobileMore = document.querySelectorAll('.nav_mobile .gnb > li > a.depth-01 img');
+            let mobileMore = document.querySelectorAll('.nav_mobile .gnb > li > a.depth-01');
+            let mobileMoreIcon = document.querySelectorAll('.nav_mobile .gnb > li > a.depth-01 img')
             let mobileList = document.querySelectorAll('.nav_mobile .gnb > li > .depth-02');
             let mobileClose = document.querySelector('.nav_mobile .gnb .menu_btn_close');
 
             mobileOpen.addEventListener('click', () => {
+
                 mobileMenu.classList.add('open');
+                body.style.overflow = 'hidden';
+
+                if (typeof fullpage_api !== 'undefined') {
+                    fullpage_api.setAllowScrolling(false);
+                    fullpage_api.setKeyboardScrolling(false);
+                }
             });
+
             mobileClose.addEventListener('click', () => {
+
                 mobileMenu.classList.remove('open');
+
+                if (typeof fullpage_api !== 'undefined') {
+                    fullpage_api.setAllowScrolling(true);
+                    fullpage_api.setKeyboardScrolling(true);
+                }
             });
-            mobileMore.forEach((btn, index) => {
-                btn.addEventListener('click', () => {
-                    mobileList[index].classList.toggle('open');
-                    btn.classList.toggle('rotate');
-                });
-            });
+
+            for (let i = 0; i < mobileMore.length; i++) {
+
+                mobileMore[i].addEventListener('click', () => {
+                    mobileMore[i].nextElementSibling.classList.toggle('open');
+
+                    let icon = mobileMore[i].querySelector('img');
+                    if (icon) {
+                        icon.classList.toggle('rotate');
+                    }
+                })
+            }
         };//script
     </script>
 </head>
@@ -272,19 +341,19 @@
         </header><!-- header_mobile end -->
 
         <div id="fullpage">
-            <div class="section" id="section0">
+            <div class="section fp-auto-height" id="section0">
                 <div class="main_visual">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <picture>
-                                    <source srcset="img/m_visual1.png" media="(max-width:600px)">
+                                    <source srcset="img/m_visual1.png" media="(max-width:700px)">
                                     <img src="img/Group_visual.png" />
                                 </picture>
                             </div><!-- swiper-slide end -->
                             <div class="swiper-slide">
                                 <picture>
-                                    <source srcset="img/m_visual2.png" media="(max-width:600px)">
+                                    <source srcset="img/m_visual2.png" media="(max-width:700px)">
                                     <img src="img/Group_visual2.png" />
                                 </picture>
                             </div><!-- swiper-slide end -->
@@ -349,7 +418,7 @@
                                 </div><!--text_box end  -->
                             </div><!-- swiper-slide end -->
                         </div><!-- swiper-wrapper end -->
-                        <!--   <div class="swiper-pagination"></div> -->
+                        <div class="swiper-pagination"></div>
                     </div><!--swiper mySwiper_new end  -->
                 </div><!-- section_new end -->
             </section><!-- #section1 end -->
@@ -396,16 +465,76 @@
                     </div><!--text end  -->
                     <div class="swiper event">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="img/event1.png" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event2.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event3.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event4.png" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event5.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event6.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event7.png" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event8.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event9.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="img/event10.jpg" alt=""></div>
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event1.png" media="(max-width:800px)">
+                                    <img src="img/event1.png" alt="donut ice cream">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event2.jpg" media="(max-width:800px)">
+                                    <img src="img/event2.jpg" alt="chicken burger">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event3.jpg" media="(max-width:800px)">
+                                    <img src="img/event3.jpg" alt="king size americano">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event4.png" media="(max-width:800px)">
+                                    <img src="img/event4.png" alt="peach coolatta">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event5.jpg" media="(max-width:800px)">
+                                    <img src="img/event5.jpg" alt="lychee coolatta">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event6.jpg" media="(max-width:800px)">
+                                    <img src="img/event6.jpg" alt="cup bingsu">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event7.png" media="(max-width:800px)">
+                                    <img src="img/event7.png" alt="zero alclgol coolatta">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event8.jpg" media="(max-width:800px)">
+                                    <img src="img/event8.jpg" alt="loyal milk tea latte">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event9.jpg" media="(max-width:800px)">
+                                    <img src="img/event9.jpg" alt="melon coolatta">
+                                </picture>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="img/m_event10.jpg" media="(max-width:800px)">
+                                    <img src="img/event10.jpg" alt="pineapple coolatta">
+                                </picture>
+                            </div>
+
                         </div><!-- swiper-wrapper end -->
                         <div class="swiper-pagination"></div>
                     </div><!-- "swiper event end -->
@@ -551,10 +680,9 @@
         <div class="top_menu">
             <div class="none">
                 <div class="menu-box search">
-                    <img src="img/icon_s.png" alt="">
+                    <img src="img/icon_search.png" alt="search icon">
                     <p>제품찾기</p>
                 </div><!-- search end -->
-
                 <div class="menu-box store">
                     <img src="img/icon_store.png" alt="">
                     <p>창업문의</p>
@@ -576,12 +704,17 @@
             </div><!-- more end -->
 
             <div class="menu-box top">
-                <a href="http://127.0.0.1:5502/index.html#firstPage"><img src="img/icon_top.png" alt=""></a>
-                <a href="http://127.0.0.1:5502/index.html#firstPage">
+                <a href="#"><img src="img/icon_top.png" alt=""></a>
+                <a href="#">
                     <p>Top</p>
                 </a>
             </div><!-- top end -->
         </div><!--top_menu end   -->
+        <div class="search-box">
+            <a href="#"><img src="img/icon_searchbox.png" alt=""></a>
+            <input type="text" id="searchInput" placeholder="검색어를 입력하세요." />
+            <a href="#"><img class="close" src="img/icon_close.png" alt=""></a>
+        </div><!-- search-box end -->
     </div><!-- wrap end -->
 </body>
 

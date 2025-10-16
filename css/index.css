@@ -318,7 +318,7 @@
 }
 
 .swiper.new .swiper-slide .text_box {
-    width: 650px;
+    width: 670px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -329,12 +329,18 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
+.mobile-br {
+  display: inline;
+}
+.mobile-br1 {
+  display: inline;
+}
 
 .swiper.new .swiper-slide .text_box p {
     font-size: var(--fontSize-text-p);
     font-weight: bold;
     color: #ADADAD;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .swiper.new .swiper-slide .text_box span {
@@ -443,7 +449,7 @@
 #section3 .swiper-pagination {
     bottom: 0;
     position: static;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #section3.fp-is-overflow .fp-overflow {

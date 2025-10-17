@@ -456,8 +456,12 @@
 }
 
 @media screen and (max-width:600px) {
+    .header::before {
+        height: 90px;
+    }
     .header .inner {
         padding: 0 30px;
+        height: 90px;
     }
 
     /*  .mobile-br2 {
@@ -541,11 +545,11 @@
         padding: 40px 45px;
     }
 
-    .mobile-br2 {
+   /*  .mobile-br2 {
         display: none;
-    }
+    } */
 
-    @media screen and (max-width:450px) {
+    @media screen and (max-width:460px) {
         .swiper.new .swiper-slide .text_box {
             width: 88%;
         }

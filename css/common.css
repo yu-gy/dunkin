@@ -326,10 +326,6 @@
         width: 40%;
     }
 
-    .swiper.new .swiper-slide .text_box {
-        padding: 50px 36px;
-    }
-
     #section4 .section_with .swiper-slide .image_box {
         margin: 20px auto;
     }
@@ -383,6 +379,7 @@
 }
 
 @media screen and (max-width:725px) {
+   
     .swiper.new .swiper-slide .text_box h2 {
         font-size: 35px;
     }
@@ -392,7 +389,7 @@
     }
 
     #footer .inner {
-        padding: 40px 30px 100px;
+        padding: 40px 25px 110px;
     }
 
     .mobilemenu {
@@ -406,19 +403,26 @@
 }
 
 @media screen and (max-width:700px) {
+     #section0 {
+        padding-top: 80px;
+    }
     .main_visual {
         padding: 0;
     }
-
+     .header::before {
+        height: 80px;
+    }
+    .header .inner {
+        padding: 0 30px;
+        height: 80px;
+    }
     .header .inner .logo a {
         width: 180px;
         height: auto;
     }
-
     .header .inner .logo a img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        width: 162px;
+        height: 27px;
     }
 
     .section_new .swiper.new .swiper-slide img {
@@ -438,17 +442,12 @@
 
     .swiper.new .swiper-slide .text_box p {
         font-size: 15px;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
     .swiper.new .swiper-slide .text_box span {
-        font-size: 16px;
+        font-size: 17px;
     }
-
-
-    /* .mobile-br1 {
-        display: none;
-    } */
 
     .section_new .swiper.new .swiper-slide img {
         width: 50%;
@@ -456,18 +455,8 @@
 }
 
 @media screen and (max-width:600px) {
-    .header::before {
-        height: 90px;
-    }
-    .header .inner {
-        padding: 0 30px;
-        height: 90px;
-    }
 
-    /*  .mobile-br2 {
-        display: none;
-    } */
-
+ 
     .header .inner .logo {
         margin-right: 0;
     }
@@ -481,12 +470,6 @@
     #section3 .text p .header .inner .nav_mobile .gnb {
         padding: 40px 40px;
         row-gap: 40px;
-    }
-
-    .swiper.new .swiper-slide .text_box {
-
-        padding: 40px 20px;
-
     }
 
     .header .inner .nav_mobile .gnb>li>a.depth-01 {
@@ -521,6 +504,9 @@
     .section_event .event-br {
         display: block;
     }
+    .swiper.new .swiper-pagination {
+        margin-top: 15px;
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -545,9 +531,30 @@
         padding: 40px 45px;
     }
 
-   /*  .mobile-br2 {
-        display: none;
-    } */
+    .top_menu .menu-box {
+        width: 65px;
+        height: 65px;
+        margin-top: 7px;
+    }
+    .top_menu .menu-box p {
+        padding-top: 10px;
+    }
+    .top_menu .none .menu-box img, .top_menu .menu-box img {
+        padding-top: 9px;
+    }
+    .top_menu .none .menu-box p {
+        font-size: 13px;
+        padding-top: 5px;
+    }
+    .top_menu .none .menu-box.close p {
+        margin-top: 0;
+
+    }
+    .top_menu .menu-box.top img {
+        padding-top: 10px;
+    }
+    
+}
 
     @media screen and (max-width:460px) {
         .swiper.new .swiper-slide .text_box {
@@ -563,7 +570,7 @@
         }
 
         .swiper.new .swiper-slide .text_box p {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .swiper.new .swiper-slide .text_box h2 {
@@ -571,12 +578,12 @@
         }
 
         .swiper.new .swiper-slide .text_box {
-            padding: 40px 10px;
+            padding: 40px 30px;
             margin-top:10px;
         }
 
         .swiper.new .swiper-slide .text_box span {
-            font-size: 14px;
+            font-size: 16px;
         }
         #section2 .section_menu .swiper.menu .swiper-wrapper .swiper-slide p {
             font-size: 25px;
@@ -608,4 +615,3 @@
             margin-right: 10px;
         }
     }
-}

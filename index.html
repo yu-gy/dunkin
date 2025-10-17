@@ -9,10 +9,15 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="lib/fullpage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         window.onload = () => {
+
+            let body = document.querySelector('body');
 
             var myFullpage = new fullpage('#fullpage', {
                 anchors: ['firstPage', 'secondPage', '3rdPage', '4rdPage', '5rdPage', '6rdPage'],
@@ -23,18 +28,6 @@
                 menu: '#menu'
             });
 
-            /*  const mediaViewContent = window.matchMedia(`(max-width: 767px)`);
-             const viewChangeHandler = (mediaViewContent) => {
-                 const moveToQnA = document.querySelector('.new')
- 
- 
-                 if (mediaViewContent.matches === true) {
-                     var swiper = new Swiper(".new", {
-                         loop: true,
-                     });
-                 }
-             };
-             mediaViewContent.addEventListener("change", viewChangeHandler); */
             var viewportWidth = window.innerWidth;
             if (viewportWidth < 1060) {
                 var swiper = new Swiper(".new", {
@@ -144,13 +137,39 @@
                 });
             };
 
-            //top_menu
+            //top_btn
+
 
             let moreBtn = document.querySelector('.menu-box.more');
             let closeBtn = document.querySelector('.menu-box.close');
             let moreMenu = document.querySelectorAll('.none .menu-box');
             let topBtn = document.querySelector('.menu-box.top');
-            let searchBtn = document.querySelector('.menu-box.search')
+            let searchBtn = document.querySelector('.menu-box.search');
+            let searchBox = document.querySelector('.search-box');
+            let searchClose = document.querySelector('.search-box img.close');
+
+            let footer = document.querySelector('.footer');
+            let footerHeight = footer.clientHeight;
+
+            let footerTop = footer.offsetTop;
+
+            let windowHeight = window.innerHeight;
+            let topMenu = document.querySelector('.top_menu');
+
+            console.log(footerHeight)
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.scrollY;
+                console.log(windowHeight + scrollTop)
+
+                if (windowHeight + scrollTop - 100 >= footerTop) {
+                    topMenu.classList.add('active');
+                    topMenu.style.bottom = footerHeight + 50 + 'px';
+                } else {
+                    topMenu.classList.remove('active');
+                    topMenu.style.bottom = '';
+                }
+
+            });
 
             moreBtn.addEventListener('click', () => {
                 closeBtn.style.display = 'block';
@@ -175,12 +194,36 @@
             });
 
             searchBtn.addEventListener('click', () => {
+                searchBox.style.display = 'flex';
+                header.style.display = 'none';
+                body.style.overflow = 'hidden';
 
+                moreMenu.forEach(menu => {
+                    menu.style.display = 'none';
+                });
+                moreBtn.style.display = 'block';
+
+
+                if (typeof fullpage_api !== 'undefined') {
+                    fullpage_api.setAllowScrolling(false);
+                    fullpage_api.setKeyboardScrolling(false);
+                }
+            });
+
+            searchClose.addEventListener('click', () => {
+                searchBox.style.display = 'none';
+                header.style.display = 'block'
+                body.style.overflow = 'visible';
+
+                if (typeof fullpage_api !== 'undefined') {
+                    fullpage_api.setAllowScrolling(true);
+                    fullpage_api.setKeyboardScrolling(true);
+                }
             });
 
 
             //mobile_menu
-            let body = document.querySelector('body');
+
             let fullPage = document.querySelector('#fullpage');
             let mobileOpen = document.querySelector('.menu_btn.mobile');
             let mobileMenu = document.querySelector('.inner .nav_mobile');
@@ -188,6 +231,17 @@
             let mobileMoreIcon = document.querySelectorAll('.nav_mobile .gnb > li > a.depth-01 img')
             let mobileList = document.querySelectorAll('.nav_mobile .gnb > li > .depth-02');
             let mobileClose = document.querySelector('.nav_mobile .gnb .menu_btn_close');
+
+            function updatePlaceholder() {
+                const input = document.getElementById('searchInput');
+                if (window.matchMedia('(max-width: 600px)').matches) {
+                    input.placeholder = '검색어를 입력하세요.';
+                } else {
+                    input.placeholder = '검색어를 입력 후 Enter를 눌러주세요.';
+                }
+            }
+            updatePlaceholder();
+            window.addEventListener('resize', updatePlaceholder);
 
             mobileOpen.addEventListener('click', () => {
 
@@ -203,6 +257,7 @@
             mobileClose.addEventListener('click', () => {
 
                 mobileMenu.classList.remove('open');
+                body.style.overflow = 'visible';
 
                 if (typeof fullpage_api !== 'undefined') {
                     fullpage_api.setAllowScrolling(true);
@@ -220,7 +275,8 @@
 
             for (let i = 0; i < mobileMore.length; i++) {
 
-                mobileMore[i].addEventListener('click', () => {
+                mobileMore[i].addEventListener('click', (e) => {
+                    e.preventDefault();
                     mobileMore[i].nextElementSibling.classList.toggle('open');
 
                     let icon = mobileMore[i].querySelector('img');
@@ -230,6 +286,7 @@
                 })
             }
         };//script
+
     </script>
 </head>
 
@@ -389,8 +446,9 @@
                                 <div class="text_box">
                                     <h2>고기듬뿍 브리또</h2>
                                     <p>Meat Buritto</p>
-                                    <span><strong>육즙 가득 소고기</strong>와 쉐프 특제 알리올리 소스를 넣고 <br class="mobile-br1" />피망, 양파, 라이스를 더해 하나로도 <strong>든든한
-                                            식사대용 브리토</strong></span>
+                                    <span><strong>육즙 가득 소고기</strong>와 특제 알리올리 소스를 넣고 <br class="mobile-br1" />피망, 양파,
+                                        라이스를 더해 하나로도 <strong>든든한
+                                            브리토</strong></span>
                                 </div><!--text_box end  -->
                             </div><!--swiper-slide end  -->
 
@@ -399,7 +457,8 @@
                                 <div class="text_box">
                                     <h2>가을 밤 필드</h2>
                                     <p>Chestnut Filled</p>
-                                    <span><strong>국산 밤과 우유</strong>를 넣어 더욱 풍미 깊고 <br class="mobile-br" /> 부드러운 필링을 채운 <strong>가을 제철 도넛</strong></span>
+                                    <span><strong>국산 밤과 우유</strong>를 넣어 더욱 풍미 깊고 <br class="mobile-br" /> 부드러운 필링을 채운
+                                        <strong>가을 제철 도넛</strong></span>
                                 </div><!--text_box end  -->
                             </div><!-- swiper-slide -->
 
@@ -408,7 +467,8 @@
                                 <div class="text_box">
                                     <h2>아이스 미숫가루 라떼</h2>
                                     <p>Iced Multigrain Latte</p>
-                                    <span><strong>신선한 우유와 6가지 곡물</strong>이 만나 <strong>고소하고 달콤한 맛</strong>을 <br class="mobile-br2" /> 즐길 수 있는
+                                    <span><strong>신선한 우유와 6가지 곡물</strong>이 만나 <strong>고소하고 달콤한 맛</strong>을 <br
+                                            class="mobile-br2" /> 즐길 수 있는
                                         시원한 미숫가루 라떼</span>
                                 </div><!--text_box end  -->
                             </div><!-- swiper-slide end -->
@@ -418,7 +478,8 @@
                                 <div class="text_box">
                                     <h2>미숫가루 쿨라타</h2>
                                     <p>Multigrain Coolatta</p>
-                                    <span><strong>신선한 우유와 6가지 곡물</strong>을 넣어 만든 <br class="mobile-br" /> <strong>달콤하고 고소한 옛날 그 맛</strong> 미숫가루 쿨라타</span>
+                                    <span><strong>신선한 우유와 6가지 곡물</strong>을 넣어 만든 <br class="mobile-br" /> <strong>달콤하고
+                                            고소한 옛날 그 맛</strong> 미숫가루 쿨라타</span>
                                 </div><!--text_box end  -->
                             </div><!-- swiper-slide end -->
                         </div><!-- swiper-wrapper end -->
@@ -464,7 +525,7 @@
             <div class="section" id="section3">
                 <div class="section_event">
                     <div class="text">
-                        <h2>DUNKIN'NEW & EVENT</h2>
+                        <h2>DUNKIN <br class="event-br"/>NEW & EVENT</h2>
                         <p>던킨의 다양한 혜택과 이벤트 그리고 신제품</p>
                     </div><!--text end  -->
                     <div class="swiper event">
@@ -681,6 +742,7 @@
                 </div><!-- inner end -->
             </footer><!-- footer end -->
         </div><!--fullpage end  -->
+
         <div class="top_menu">
             <div class="none">
                 <div class="menu-box search">
@@ -706,7 +768,6 @@
                 <img src="img/icon_more.png" alt="">
                 <p>More</p>
             </div><!-- more end -->
-
             <div class="menu-box top">
                 <a href="#"><img src="img/icon_top.png" alt=""></a>
                 <a href="#">
@@ -715,10 +776,32 @@
             </div><!-- top end -->
         </div><!--top_menu end   -->
         <div class="search-box">
-            <a href="#"><img src="img/icon_searchbox.png" alt=""></a>
-            <input type="text" id="searchInput" placeholder="검색어를 입력하세요." />
-            <a href="#"><img class="close" src="img/icon_close.png" alt=""></a>
+            <div class="input-wrap">
+                <button><img class="search" src="img/icon_searchbox.png" alt=""></button>
+                <input type="text" id="searchInput" placeholder="검색어를 입력 후 Enter를 눌러주세요." />
+                <button><img class="close" src="img/icon_close.png" alt=""></button>
+            </div><!-- input-wrap end -->
         </div><!-- search-box end -->
+        <div class="mobilemenu">
+            <div class="list">
+                <div class="item">
+                    <img src="img/mobileicon_store.png" alt="">
+                    <p>STORE</p>
+                </div><!-- item end -->
+                <div class="item">
+                    <img src="img/mobileicon_order.png" alt="">
+                    <p>ORDER</p>
+                </div><!-- item end -->
+                <div class="item">
+                    <img src="img/mobileicon_menu.png" alt="">
+                    <p>MENU</p>
+                </div><!-- item end -->
+                <div class="item">
+                    <img src="img/mobileicon_my.png" alt="">
+                    <p>MY</p>
+                </div><!-- item end -->
+            </div><!-- list end -->
+        </div><!--mobilemenu end  -->
     </div><!-- wrap end -->
 </body>
 

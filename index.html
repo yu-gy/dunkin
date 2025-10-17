@@ -93,7 +93,7 @@
             });
 
             var swiper = new Swiper(".with", {
-                slidesPerView: 1.5,
+                slidesPerView: 1.2,
                 spaceBetween: 30,
                 centeredSlides: true,
                 pagination: {
@@ -101,7 +101,15 @@
                     clickable: true,
                 },
                 breakpoints: {
-                    800: {
+                    450: {
+                        slidesPerView: 1.5,
+                        centeredSlides: true
+                    },
+                    615: {
+                        slidesPerView: 2,
+                        centeredSlides: true
+                    },
+                    850: {
                         slidesPerView: 3,
                         centeredSlides: false
                     }
@@ -244,7 +252,7 @@
             window.addEventListener('resize', updatePlaceholder);
 
             mobileOpen.addEventListener('click', () => {
-
+                
                 mobileMenu.classList.add('open');
                 body.style.overflow = 'hidden';
 

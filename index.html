@@ -229,6 +229,14 @@
                 }
             });
 
+            function updatePlaceholder() {
+                const input = document.getElementById('searchInput');
+                if (window.matchMedia('(max-width: 600px)').matches) {
+                    input.placeholder = '검색어를 입력하세요.';
+                } else {
+                    input.placeholder = '검색어를 입력 후 Enter를 눌러주세요.';
+                }
+            }
 
             //mobile_menu
 
@@ -240,14 +248,7 @@
             let mobileList = document.querySelectorAll('.nav_mobile .gnb > li > .depth-02');
             let mobileClose = document.querySelector('.nav_mobile .gnb .menu_btn_close');
 
-            function updatePlaceholder() {
-                const input = document.getElementById('searchInput');
-                if (window.matchMedia('(max-width: 600px)').matches) {
-                    input.placeholder = '검색어를 입력하세요.';
-                } else {
-                    input.placeholder = '검색어를 입력 후 Enter를 눌러주세요.';
-                }
-            }
+            
             updatePlaceholder();
             window.addEventListener('resize', updatePlaceholder);
 

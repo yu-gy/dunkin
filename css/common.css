@@ -466,7 +466,12 @@
         margin-bottom: 5px;
         letter-spacing: 1.5;
     }
-
+    .swiper.new .swiper-slide .text_box h2 {
+        margin-bottom: 5px;
+    }
+    .swiper.new .swiper-slide .text_box {
+        padding: 50px 40px;
+    }
     #section3 .text p .header .inner .nav_mobile .gnb {
         padding: 40px 40px;
         row-gap: 40px;
@@ -537,6 +542,9 @@
         margin-top: 7px;
     }
     .top_menu .menu-box p {
+        padding-top: 5px;
+    }
+    .top_menu .menu-box.top p {
         padding-top: 10px;
     }
     .top_menu .none .menu-box img, .top_menu .menu-box img {

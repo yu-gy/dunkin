@@ -117,6 +117,25 @@
                 }
             });
 
+            //section fp-auto-height
+            const sectionIds = ['section1', 'section2', 'section3', 'section4'];
+
+            function toggleClass() {
+                sectionIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el) return; 
+                    if (window.innerWidth <= 900) {
+                        el.classList.add('fp-auto-height-responsive');
+                    } else {
+                        el.classList.remove('fp-auto-height');
+                    }
+                });
+            }
+
+            toggleClass(); 
+            window.addEventListener('resize', toggleClass);
+
+
             // new menu
             let header = document.querySelector('.header');
             let headerNav = document.querySelector('.header .nav');
@@ -172,7 +191,7 @@
 
                 if (windowHeight + scrollTop - 100 >= footerTop) {
                     topMenu.classList.add('active');
-                    topMenu.style.bottom = footerHeight + 50 + 'px';
+                    topMenu.style.bottom = footerHeight + 40 + 'px';
                 } else {
                     topMenu.classList.remove('active');
                     topMenu.style.bottom = '';
@@ -249,7 +268,7 @@
             let mobileList = document.querySelectorAll('.nav_mobile .gnb > li > .depth-02');
             let mobileClose = document.querySelector('.nav_mobile .gnb .menu_btn_close');
 
-            
+
             updatePlaceholder();
             window.addEventListener('resize', updatePlaceholder);
 
@@ -293,7 +312,7 @@
                     if (icon) {
                         icon.classList.toggle('rotate');
                     }
-                })
+                });
             }
         };//script
 
@@ -349,17 +368,17 @@
                         </li>
                     </ul><!-- gnb end -->
                 </nav><!-- nav end -->
-                <button class="menu_btn mobile"><img src="img/icon_menu.png" alt="menu"></button>
+                <button class="menu_btn mobile"><img src="img/mobile-menu.svg" alt="menu"></button>
                 <nav class="nav_mobile">
                     <ul class="gnb">
-                        <button class="menu_btn_close"><img src="img/Vector.png" alt="menu close"></button>
+                        <button class="menu_btn_close"><img src="img/menucloseicon.svg" alt="menu close"></button>
                         <li>
                             <a href="#" class="depth-01">DUNKIN’ OF MONNTH</a>
                         </li>
                         <li>
                             <a href="#" class="depth-01">
                                 <span>BRAND</span>
-                                <img src="img/menu_btn.png" alt="more menu">
+                                <img src="img/moreicon.svg" alt="more menu">
                             </a>
                             <ul class="depth-02">
                                 <li><a href="#">HISTORY</a></li>
@@ -369,7 +388,7 @@
                         <li>
                             <a href="#" class="depth-01">
                                 <span>MENU</span>
-                                <img src="img/menu_btn.png" alt="more menu">
+                                <img src="img/moreicon.svg" alt="more menu">
                             </a>
                             <ul class="depth-02">
                                 <li><a href="#">ALL</a></li>
@@ -382,7 +401,7 @@
                         <li>
                             <a href="#" class="depth-01">
                                 <span>EVENT</span>
-                                <img src="img/menu_btn.png" alt="more menu">
+                                <img src="img/moreicon.svg" alt="more menu">
                             </a>
                             <ul class="depth-02">
                                 <li><a href="#">프로모션</a></li>
@@ -395,7 +414,7 @@
                         <li>
                             <a href="#" class="depth-01">
                                 <span>ORDER</span>
-                                <img src="img/menu_btn.png" alt="more menu">
+                                <img src="img/moreicon.svg" alt="more menu">
                             </a>
                             <ul class="depth-02">
                                 <li><a href="#">케이터링</a></li>
@@ -437,8 +456,6 @@
                 </div><!--main_visual end  -->
             </div><!--#section0 end  -->
 
-            <!-- !!!!!!!!!fp-auto-height-responsive 추가하기!!!!!! -->
-
             <section class="section" id="section1">
                 <div class="section_new">
                     <div class="text">
@@ -458,7 +475,8 @@
                                 <div class="text_box">
                                     <h2>고기듬뿍 브리또</h2>
                                     <p>Meat Buritto</p>
-                                    <span><strong>육즙 가득 소고기</strong>와 셰프 특제 알리올리 소스를 넣고 피망, 양파, 라이스를 더해 하나로도 <strong>든든한 식사대용 브리토</strong></span>
+                                    <span><strong>육즙 가득 소고기</strong>와 셰프 특제 알리올리 소스를 넣고 피망, 양파, 라이스를 더해 하나로도 <strong>든든한
+                                            식사대용 브리토</strong></span>
                                 </div><!--text_box end  -->
                             </div><!--swiper-slide end  -->
 
@@ -467,7 +485,8 @@
                                 <div class="text_box">
                                     <h2>가을 밤 필드</h2>
                                     <p>Chestnut Filled</p>
-                                    <span><strong>국산 밤과 우유</strong>를 넣어 더욱 풍미 깊고 부드러운 필링을 채운 <strong>가을 제철 도넛</strong></span>
+                                    <span><strong>국산 밤과 우유</strong>를 넣어 더욱 풍미 깊고 부드러운 필링을 채운 <strong>가을 제철
+                                            도넛</strong></span>
                                 </div><!--text_box end  -->
                             </div><!-- swiper-slide -->
 
@@ -476,7 +495,8 @@
                                 <div class="text_box">
                                     <h2>아이스 미숫가루 라떼</h2>
                                     <p>Iced Multigrain Latte</p>
-                                    <span><strong>신선한 우유와 6가지 곡물</strong>이 만나 <strong>고소하고 달콤한 맛</strong>을 즐길 수 있는 시원한 미숫가루 라떼</span>
+                                    <span><strong>신선한 우유와 6가지 곡물</strong>이 만나 <strong>고소하고 달콤한 맛</strong>을 즐길 수 있는 시원한
+                                        미숫가루 라떼</span>
                                 </div><!--text_box end  -->
                             </div><!-- swiper-slide end -->
 
@@ -485,7 +505,8 @@
                                 <div class="text_box">
                                     <h2>미숫가루 쿨라타</h2>
                                     <p>Multigrain Coolatta</p>
-                                    <span><strong>신선한 우유와 6가지 곡물</strong>을 넣어 만든 <strong>달콤하고 고소한 옛날 그 맛</strong> 미숫가루 쿨라타</span>
+                                    <span><strong>신선한 우유와 6가지 곡물</strong>을 넣어 만든 <strong>달콤하고 고소한 옛날 그 맛</strong> 미숫가루
+                                        쿨라타</span>
                                 </div><!--text_box end  -->
                             </div><!-- swiper-slide end -->
                         </div><!-- swiper-wrapper end -->
@@ -752,30 +773,30 @@
         <div class="top_menu">
             <div class="none">
                 <div class="menu-box search">
-                    <img src="img/icon_search.png" alt="search icon">
+                    <img src="img/search.svg" alt="search icon">
                     <p>제품찾기</p>
                 </div><!-- search end -->
                 <div class="menu-box store">
-                    <img src="img/icon_store.png" alt="">
+                    <img src="img/store.svg" alt="store icon">
                     <p>창업문의</p>
                 </div><!-- store end -->
 
                 <div class="menu-box data">
-                    <img src="img/icon_donut.png" alt="">
+                    <img src="img/menu.svg" alt="">
                     <p>영양정보</p>
                 </div><!-- data end -->
 
                 <div class="menu-box close">
-                    <img src="img/icon_close.png" alt="">
+                    <img src="img//closeicon.svg" alt="">
                     <p>Close</p>
                 </div><!-- close end -->
             </div><!-- none end -->
             <div class="menu-box more">
-                <img src="img/icon_more.png" alt="">
+                <img src="img/plusicon.svg" alt="">
                 <p>More</p>
             </div><!-- more end -->
             <div class="menu-box top">
-                <a href="#"><img src="img/icon_top.png" alt=""></a>
+                <a href="#"><img src="img/topicon.svg" alt=""></a>
                 <a href="#">
                     <p>Top</p>
                 </a>
@@ -799,7 +820,7 @@
                     <p>ORDER</p>
                 </div><!-- item end -->
                 <div class="item">
-                    <img src="img/mobileicon_menu.svg" alt="">
+                    <img src="img/menuicon.svg" alt="">
                     <p>MENU</p>
                 </div><!-- item end -->
                 <div class="item">

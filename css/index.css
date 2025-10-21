@@ -159,6 +159,9 @@
     height: 100vh;
     overflow-y: auto;
 }
+.header .inner .nav_mobile .gnb .menu_btn_close img{
+    width: 20px;
+}
 
 .header .inner .nav_mobile .gnb::-webkit-scrollbar {
     display: none;
@@ -183,7 +186,7 @@
     height: 13px;
     object-fit: cover;
     display: block;
-    margin-right: 8px;
+    /* margin-right: 8px; */
 }
 
 .header .inner .nav_mobile .gnb>li>a.depth-01 img.rotate {
@@ -193,7 +196,6 @@
 .header .inner .nav_mobile .gnb>li .depth-02 {
     display: none;
     padding: 10px 0;
-    font-weight: 500;
 }
 
 .header .inner .nav_mobile .gnb>li .depth-02 li {
@@ -707,9 +709,10 @@
     font-weight: 500;
 }
 
-
+.fp-viewing-6rdPage .top_menu {
+    display: none;
+}
 .top_menu {
-    /* z-index: 99999; */
     position: fixed;
     right: 50px;
     bottom: 50px;
@@ -801,7 +804,7 @@
 
 .top_menu .none .menu-box.close img {
     width: 16px;
-    margin: 2px 0;
+    margin: 2px 0 0 1px;
 }
 
 .top_menu .none .menu-box.close p {
@@ -812,18 +815,20 @@
 .top_menu .none .menu-box p {
     padding-top: 4px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .top_menu .menu-box p {
     padding-top: 8px;
+    font-weight: bold;
 }
 
 .top_menu .menu-box.more img {
-    width: 18px;
+    width: 17px;
 }
 
 .top_menu .menu-box.top img {
+    width: 15px;
     padding-top: 14px;
 }
 
@@ -860,10 +865,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-weight: 500;
     gap: 8px;
     cursor: pointer;
 }
 .mobilemenu .list .item p {
-    font-weight: 500;
+    font-weight: bold;
 }

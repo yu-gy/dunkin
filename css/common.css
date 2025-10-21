@@ -305,6 +305,23 @@
 }
 
 @media screen and (max-width:900px) {
+     #section1, 
+    #section2,
+    #section3,
+    #section4 {
+        padding: 80px 0;
+    }
+ 
+    #section3 .swiper-pagination {
+        padding-top: 0;
+    }
+    #section4 .section_with .text {
+        margin-top: 0;
+    }
+    .section_event {
+        margin-top: 0;
+        padding-top: 0;
+    }
     .section_new {
         padding-top: 0;
     }
@@ -316,8 +333,9 @@
     .top_menu {
         right: 20px;
     }
-
-
+    .fp-viewing-6rdPage .top_menu {
+        display: block;
+    }
 
 }
 
@@ -329,7 +347,7 @@
     #section4 .section_with .swiper-slide .image_box {
         margin: 20px auto;
     }
-
+    
 
 }
 
@@ -456,7 +474,7 @@
 
 @media screen and (max-width:600px) {
 
- 
+   
     .header .inner .logo {
         margin-right: 0;
     }
@@ -482,7 +500,7 @@
     }
 
     .header .inner .nav_mobile .gnb>li>a.depth-01 img {
-        width: 12px;
+        width: 15px;
         height: 10px;
     }
 
@@ -510,7 +528,7 @@
         display: block;
     }
     .swiper.new .swiper-pagination {
-        margin-top: 15px;
+        margin-top: 30px;
     }
 }
 
@@ -559,7 +577,7 @@
 
     }
     .top_menu .menu-box.top img {
-        padding-top: 10px;
+        padding-top: 11px;
     }
     
 }

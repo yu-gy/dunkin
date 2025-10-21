@@ -347,7 +347,6 @@
     #section4 .section_with .swiper-slide .image_box {
         margin: 20px auto;
     }
-    
 
 }
 
@@ -356,10 +355,6 @@
     #section2 .text p {
         margin-bottom: 0;
     }
-
-  /*   #section3 .swiper-pagination {
-        padding-bottom: 70px;
-    } */
 
     #footer .inner .right strong {
         display: none;

@@ -357,9 +357,9 @@
         margin-bottom: 0;
     }
 
-    #section3 .swiper-pagination {
+  /*   #section3 .swiper-pagination {
         padding-bottom: 70px;
-    }
+    } */
 
     #footer .inner .right strong {
         display: none;
@@ -604,7 +604,7 @@
         }
 
         .swiper.new .swiper-slide .text_box {
-            padding: 40px 30px;
+            padding: 40px 27px;
             margin-top:10px;
         }
 

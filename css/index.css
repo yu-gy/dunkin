@@ -266,7 +266,7 @@
     font-family: 'Debussy';
     color: var(--color-text-b);
     font-size: var(--fontSize-text-h2);
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     letter-spacing: 2px;
 }
 
@@ -276,12 +276,12 @@
     margin-bottom: 40px;
 }
 
-.section_new {
-    padding-top: 128px;
+#section1{
+    padding-top: 110px;
+    justify-content: center;
 }
-
 .section_new .text p {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .section_new .tab_menu {
@@ -312,6 +312,7 @@
 
 .section_new .swiper.new .swiper-slide.active {
     display: flex;
+    align-items: center;
 }
 
 .section_new .swiper.new .swiper-slide {
@@ -360,7 +361,7 @@
 .swiper.new .swiper-pagination {
     bottom: 0;
     position: static;
-    margin-top: 30px;
+    margin: 30px 0 30px 0;
 }
 
 .swiper.new .swiper-pagination-bullet.swiper-pagination-bullet {
@@ -749,6 +750,7 @@
     top: 50%;
     right: 18px;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .search-box .input-wrap img.close {
@@ -758,7 +760,7 @@
     transform: translateX(-50%);
     width: 20px;
     margin-left: 20px;
-
+    cursor: pointer;
 }
 
 .search-box input {

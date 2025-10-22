@@ -45,7 +45,6 @@
     }
 }
 
-
 @media screen and (max-width:1510px) {
     .header .inner {
         justify-content: space-between;
@@ -193,7 +192,7 @@
     .text h2 {
         font-size: 50px;
         margin-bottom: 10px;
-        letter-spacing: 1.5;
+        letter-spacing: 1.5px;
     }
 
     .text p {
@@ -217,9 +216,6 @@
 }
 
 @media screen and (max-width:1060px) {
-    .section_new {
-        padding-top: 120px;
-    }
 
     .section_new .tab_menu {
         display: none;
@@ -599,7 +595,7 @@
         }
 
         .swiper.new .swiper-slide .text_box {
-            padding: 40px 27px;
+            padding: 40px 20px;
             margin-top:10px;
         }
 

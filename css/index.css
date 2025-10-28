@@ -873,3 +873,17 @@
 .mobilemenu .list .item p {
     font-weight: bold;
 }
+
+.mobilemenu{
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobilemenu.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobilemenu:not(.active) {
+    transform: translateY(100%);
+    opacity: 0;
+}

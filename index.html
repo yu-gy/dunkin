@@ -123,7 +123,7 @@
             function toggleClass() {
                 sectionIds.forEach(id => {
                     const el = document.getElementById(id);
-                    if (!el) return; 
+                    if (!el) return;
                     if (window.innerWidth <= 900) {
                         el.classList.add('fp-auto-height-responsive');
                     } else {
@@ -132,7 +132,7 @@
                 });
             }
 
-            toggleClass(); 
+            toggleClass();
             window.addEventListener('resize', toggleClass);
 
 
@@ -314,6 +314,29 @@
                     }
                 });
             }
+
+            //mobileNav 
+            let mobileMenuList = document.querySelector('.mobilemenu'); 
+            let prevScrollBar = 0; 
+            let delta = 5;
+
+            window.addEventListener('scroll', () => {
+                let scrollBar = window.scrollY; 
+                let diff = scrollBar - prevScrollBar;
+
+                if (Math.abs(diff) > delta) { 
+                    if (diff > 0) {
+                        
+                        mobileMenuList.classList.remove('active'); 
+                    } else {
+                        
+                        mobileMenuList.classList.add('active'); 
+                    }
+                    prevScrollBar = scrollBar;
+                }
+            });
+
+
         };//script
 
     </script>

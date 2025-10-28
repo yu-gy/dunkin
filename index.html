@@ -317,15 +317,17 @@
 
             //mobileNav 
             let mobileMenuList = document.querySelector('.mobilemenu'); 
-            let prevScrollBar = 0; 
+            let prevScrollBar = window.scrollY; 
             let delta = 5;
+
+            mobileMenuList.classList.add('active'); 
 
             window.addEventListener('scroll', () => {
                 let scrollBar = window.scrollY; 
                 let diff = scrollBar - prevScrollBar;
 
                 if (Math.abs(diff) > delta) { 
-                    if (diff > 0) {
+                    if (diff > 0&& scrollBar > 0) {
                         
                         mobileMenuList.classList.remove('active'); 
                     } else {
@@ -335,7 +337,6 @@
                     prevScrollBar = scrollBar;
                 }
             });
-
 
         };//script
 

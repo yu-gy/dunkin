@@ -184,10 +184,10 @@
             let windowHeight = window.innerHeight;
             let topMenu = document.querySelector('.top_menu');
 
-            console.log(footerHeight)
+            /* console.log(footerHeight) */
             window.addEventListener('scroll', () => {
                 let scrollTop = window.scrollY;
-                console.log(windowHeight + scrollTop)
+                /* console.log(windowHeight + scrollTop) */
 
                 if (windowHeight + scrollTop - 100 >= footerTop) {
                     topMenu.classList.add('active');
@@ -316,27 +316,29 @@
             }
 
             //mobileNav 
-            let mobileMenuList = document.querySelector('.mobilemenu'); 
-            let prevScrollBar = window.scrollY; 
+            let mobileMenuList = document.querySelector('.mobilemenu');
+            let prevScrollBar = window.scrollY;
             let delta = 5;
 
-            mobileMenuList.classList.add('active'); 
+            mobileMenuList.classList.add('active');
 
-            window.addEventListener('scroll', () => {
-                let scrollBar = window.scrollY; 
-                let diff = scrollBar - prevScrollBar;
-
-                if (Math.abs(diff) > delta) { 
-                    if (diff > 0&& scrollBar > 0) {
-                        
-                        mobileMenuList.classList.remove('active'); 
-                    } else {
-                        
-                        mobileMenuList.classList.add('active'); 
-                    }
-                    prevScrollBar = scrollBar;
-                }
-            });
+            //모바일 하단네비 스크롤 제어
+            /*  window.addEventListener('scroll', () => {
+                 let scrollBar = window.scrollY; 
+                 let diff = scrollBar - prevScrollBar;
+ 
+                 if (Math.abs(diff) > delta) { 
+                     if (diff > 0&& scrollBar > 0) {
+                         
+                         mobileMenuList.classList.remove('active'); 
+                     } else {
+                         
+                         mobileMenuList.classList.add('active'); 
+                     }
+                     prevScrollBar = scrollBar;
+                 }
+             });
+        */
 
         };//script
 
